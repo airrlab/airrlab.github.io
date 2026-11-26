@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="zh-CN" data-astro-cid-z4jru4n3><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PBR 概览</title><meta name="description" content="从基础颜色、金属度和粗糙度理解基于物理的渲染。"><style>html{color:#182230;background:#f8fafc;font-family:system-ui,sans-serif;line-height:1.65}body{overflow-wrap:anywhere;max-width:44rem;margin:0 auto;padding:clamp(2rem,6vw,4rem) 1.25rem}body h1{margin:0 0 1rem;font-size:clamp(2rem,5vw,2.75rem);line-height:1.2}body a{color:#1d4ed8;text-underline-offset:.18em}
+nav[data-astro-cid-sgg5joot]{margin-bottom:1.5rem}.summary[data-astro-cid-sgg5joot]{color:#475569;margin:0 0 2rem}
+</style></head><body data-astro-cid-z4jru4n3><main data-astro-cid-z4jru4n3><nav aria-label="文章导航" data-astro-cid-sgg5joot><a href="/" data-astro-cid-sgg5joot>返回首页</a></nav><article data-astro-cid-sgg5joot><header data-astro-cid-sgg5joot><h1 data-astro-cid-sgg5joot>PBR 概览</h1><p class="summary" data-astro-cid-sgg5joot>从基础颜色、金属度和粗糙度理解基于物理的渲染。</p></header><h2 id="pbr-解决什么问题">PBR 解决什么问题</h2>
+<p>同一块金属在室内灯光和户外阳光下会呈现不同的亮度与反射。基于物理的渲染（Physically Based Rendering，PBR）用材质参数描述表面如何反射光，再结合入射光和观察方向计算外观。同一套材质参数可以用于不同的光照环境。</p>
+<h2 id="怎样读取材质参数">怎样读取材质参数</h2>
+<p>以 glTF 2.0 的金属度与粗糙度材质模型为例。</p>
+<ul>
+<li><strong>基础颜色</strong>。对于非金属，它描述漫反射的颜色。对于金属，它描述光线垂直入射时各颜色通道的镜面反射率。</li>
+<li><strong>金属度</strong>。取 <code>0</code> 时，模型包含漫反射和镜面反射。取 <code>1</code> 时，模型用镜面反射描述纯金属表面。</li>
+<li><strong>粗糙度</strong>。粗糙度越高，镜面反射会分布到更宽的角度。在同样的光照下，高光通常更宽，反射细节也更模糊。</li>
+</ul>
+<h2 id="在固定光照下比较粗糙度">在固定光照下比较粗糙度</h2>
+<p>用同一个材质球，固定灯光、镜头和曝光，保持基础颜色和金属度相同。分别将粗糙度设为 <code>0.15</code> 和 <code>0.65</code>，观察高光覆盖的范围，以及环境反射的轮廓还能看清多少。</p>
+<p><a href="https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#metallic-roughness-material">glTF 2.0 规范 §3.9.2 · 金属度与粗糙度材质</a></p>
+</article></main></body></html>
